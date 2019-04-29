@@ -1,0 +1,35 @@
+public class Battleship_Test {
+
+
+
+System.out.println("Board for displaying Cpu's boats");
+		String [][] cpuBoard = new String[10][10];
+		cpuBoard = setup.cpuSetup(cpuBoard);
+		drawBoard(cpuBoard);
+
+
+public static String[][] cpuSetup(String[][] cpuBoard){			 
+			
+			int [] boats ={5,4,3,3,2};
+
+
+		for (int j=2; j<6; j++){
+			int L = j;
+			int C = (int)(Math.random()*5);
+			int R = (int)(Math.random()*5);
+			double P =Math.random();
+			
+			if(P>.5){
+				for (int i=C;i<L+C;i++){
+					cpuBoard[R][i]=" "+L+" ";
+				}
+			}
+			else{
+				for (int i=R;i<L+R;i++){
+					cpuBoard[i][C]=" "+L+" ";
+				}
+			}
+		}	
+			return cpuBoard;
+			
+		}
