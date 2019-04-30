@@ -88,67 +88,60 @@ public class setup{
 	public static void drawBoard (String[][] Board){				//Function 4: DrawBaord -Prints out the board for the player
 			for (int i=0; i < Board.length;i++) {
 			for(int j=0; j < Board.length;j++) {
-				System.out.printf(Board[i][j]);
+				System.out.printf(Board[i][j]);						//simple double array printing
 			}
 			System.out.println();
 			}
 	}
 
 	//***********FUNCTION 5*************
-	public static int[] playerGuess (int[] playerGuess){
+	public static int[] playerGuess (int[] playerGuess){		//Function 5: Input the player's guess
 	
-			System.out.println("Please make a Guess");
+			System.out.println("Please make a Guess");			//Asks player for a column. Parses it as an int and sets it to variable C
 			Scanner in = new Scanner(System.in);											
 			System.out.print("Column(1-10):");										
 			String input1 = in.next();														
 			int C = Integer.parseInt(input1);
-			while (C<1||C>10){
+			while (C<1||C>10){									//Checks if that is whithin boundries. Aks player to guess again if outside.
 				System.out.println("This is not a valid Column. Pick another");
 				System.out.print("Column(1-10):");										
 				input1 = in.next();														
 				C = Integer.parseInt(input1);
 			}
 			
-			System.out.print("Row (1-10):");										
+			System.out.print("Row (1-10):");				//Asks player for a row. Parses it as an int and sets it to variable R							
 			String input2 = in.next();
 			int R = Integer.parseInt(input2);
-			while (R<1||R>10){
+			while (R<1||R>10){								//Checks if that is whithin boundries. Aks player to guess again if outside.
 				System.out.println("This is not a valid Row. Pick another");
 				System.out.print("Row(1-10):");										
 				input2 = in.next();														
 				R = Integer.parseInt(input2);
 			}
-			
-			playerGuess[0]=R;
+			playerGuess[0]=R;								//sets the array to the player's guess. Passes it back to main function
 			playerGuess[1]=C;
-			
-			
-			
-		return playerGuess;
-		
-		
-			
-			
-		
+	
+		return playerGuess;	
 	}
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	//***********FUNCTION 6*************
+	public static int[] cpuGuess (int[] cpuGuess){		//Function 6: Randomized guess for CPS
+															
+			int C = (int)(Math.random()*11);			//random Row and column are selected. 
+			while (C<1||C>10){							//if outside boundries it will randomize a new number																
+				C = (int)(Math.random()*11);
+			}
+			
+			int R = (int)(Math.random()*11);
+			while (R<1||R>10){
+				R=(int)(Math.random()*11);
+			}
+			cpuGuess[0]=R;								//sets the array to the cpu's guess. Passes it back to main function
+			cpuGuess[1]=C;
+	
+		return cpuGuess;	
+	}
 
 
 }
