@@ -39,10 +39,27 @@ public class setup{
 			System.out.print("Vertical or Horizontal? (V=1 Or H=2):");						//Ask player if they want the boat vertical or Horizontal
 			String input4 = in.next();														//Next input is brought in as a string
 			int P = Integer.parseInt(input4);												//set string input to a int Variable P
-		
-			System.out.println();
 			
-			if(P==2){																		//if P==2, then print L across the designated spaces horizontally
+			if (P==2){
+				while (C<1||C+L>11){															//Checks if that is whithin boundries. Aks player to guess again if outside.
+					System.out.println("This is not a valid Column. Pick another");
+					System.out.print("Column(1-10):");										
+					input1 = in.next();														
+					C = Integer.parseInt(input1);
+				}
+			}
+			else{
+				while (R<1||R+L>11){																//Checks if that is whithin boundries. Aks player to guess again if outside.
+					System.out.println("This is not a valid Row. Pick another");
+					System.out.print("Row(1-10):");										
+					input2 = in.next();														
+					R = Integer.parseInt(input2);
+				}
+			}
+
+			System.out.println();
+			if(P==2){
+				//if P==2, then print L across the designated spaces horizontally
 				for (int i=C;i<L+C;i++){
 					playerBoard[R][i]=" "+L+" ";
 				}
@@ -102,17 +119,17 @@ public class setup{
 			System.out.print("Column(1-10):");										
 			String input1 = in.next();														
 			int C = Integer.parseInt(input1);
-			while (C<1||C>10){									//Checks if that is whithin boundries. Aks player to guess again if outside.
+			while (C<1||C>11){									//Checks if that is whithin boundries. Asks player to guess again if outside.
 				System.out.println("This is not a valid Column. Pick another");
 				System.out.print("Column(1-10):");										
 				input1 = in.next();														
 				C = Integer.parseInt(input1);
-			}
+				}
 			
 			System.out.print("Row (1-10):");				//Asks player for a row. Parses it as an int and sets it to variable R							
 			String input2 = in.next();
 			int R = Integer.parseInt(input2);
-			while (R<1||R>10){								//Checks if that is whithin boundries. Aks player to guess again if outside.
+			while (R<1||R>11){								//Checks if that is whithin boundries. Aks player to guess again if outside.
 				System.out.println("This is not a valid Row. Pick another");
 				System.out.print("Row(1-10):");										
 				input2 = in.next();														
@@ -129,12 +146,12 @@ public class setup{
 	public static int[] cpuGuess (int[] cpuGuess){		//Function 6: Randomized guess for CPS
 															
 			int C = (int)(Math.random()*11);			//random Row and column are selected. 
-			while (C<1||C>10){							//if outside boundries it will randomize a new number																
+			while (C<1||C>11){							//if outside boundries it will randomize a new number																
 				C = (int)(Math.random()*11);
 			}
 			
 			int R = (int)(Math.random()*11);
-			while (R<1||R>10){
+			while (R<1||R>11){
 				R=(int)(Math.random()*11);
 			}
 			cpuGuess[0]=R;								//sets the array to the cpu's guess. Passes it back to main function

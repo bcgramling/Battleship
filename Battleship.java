@@ -17,8 +17,8 @@ public class Battleship {
 		
 		
 		setup.drawBoard(playerBoard);
-		//playerBoard= setup.setPiece(playerBoard);									//Calls setPiece function to have player set up their boats			
-		setup.cpuSetup(playerBoard);												//shortcut for randomized player start. Commented out for normal play
+		playerBoard= setup.setPiece(playerBoard);									//Calls setPiece function to have player set up their boats			
+		//setup.cpuSetup(playerBoard);												//shortcut for randomized player start. Commented out for normal play
 		setup.drawBoard(playerBoard);
 		
 		System.out.println();
